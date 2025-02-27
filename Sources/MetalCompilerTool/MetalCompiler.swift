@@ -21,11 +21,14 @@ struct MetalCompilerTool: ParsableCommand {
         ]
             + inputs
             + [
+                "-std=metal3.2",
+                "-target",
+                "air64-apple-macos15",
                 "-o",
                 output,
                 "-gline-tables-only",
-                "-frecord-sources",
-                "-fmetal-enable-logging"
+                "-frecord-sources=flat",
+                "-fmetal-enable-logging",
             ]
             + ["-fmodules-cache-path=\(cache)"]
         try p.run()
